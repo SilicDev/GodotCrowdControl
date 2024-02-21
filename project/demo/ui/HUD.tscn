@@ -1,0 +1,202 @@
+[gd_scene load_steps=11 format=3 uid="uid://cncu0581emc0k"]
+
+[ext_resource type="Script" path="res://demo/ui/HUD.gd" id="1_a5w43"]
+[ext_resource type="Texture2D" uid="uid://bau2r55ekk0ln" path="res://demo/assets/ui/gold.png" id="2_jpyjk"]
+[ext_resource type="Texture2D" uid="uid://bytme05r8yhgd" path="res://demo/assets/ui/pick1.png" id="3_hf3um"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slj3q"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 4
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fytt"]
+bg_color = Color(0.6, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 4
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_64ehf"]
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lkuli"]
+bg_color = Color(0.6, 0, 0, 0.501961)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r1xjs"]
+font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jhqm"]
+bg_color = Color(0.901961, 0.901961, 0.901961, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_tjjo6"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="Control" node_paths=PackedStringArray("HealthBar", "CoinCount", "PickUpgrade", "GameOverScreen", "RetryButton", "PricePopup", "PriceLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a5w43")
+HealthBar = NodePath("Margin/VBox/ProgressBar")
+CoinCount = NodePath("Margin/VBox/HBox2/Label")
+PickUpgrade = NodePath("Margin/VBox/TextureRect")
+GameOverScreen = NodePath("GameOverScreen")
+RetryButton = NodePath("GameOverScreen/VBoxContainer/VBoxContainer/Retry")
+PricePopup = NodePath("PricePopup")
+PriceLabel = NodePath("PricePopup/HBoxContainer/Label")
+main_scene = "res://demo/ui/MainMenu.tscn"
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Margin/VBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Margin/VBox"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_slj3q")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6fytt")
+max_value = 5.0
+step = 1.0
+value = 5.0
+rounded = true
+fill_mode = 1
+show_percentage = false
+
+[node name="HBox2" type="HBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Margin/VBox/HBox2"]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_64ehf")
+
+[node name="TextureRect" type="TextureRect" parent="Margin/VBox/HBox2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_jpyjk")
+
+[node name="TextureRect" type="TextureRect" parent="Margin/VBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("3_hf3um")
+
+[node name="GameOverScreen" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_lkuli")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverScreen"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="GameOverScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_r1xjs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Retry" type="Button" parent="GameOverScreen/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Retry"
+
+[node name="BackToTitle" type="Button" parent="GameOverScreen/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back to Title"
+
+[node name="PricePopup" type="Panel" parent="."]
+visible = false
+top_level = true
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -85.0
+offset_right = 35.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5jhqm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PricePopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PricePopup/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10"
+label_settings = SubResource("LabelSettings_tjjo6")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PricePopup/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_jpyjk")
+stretch_mode = 5
+
+[connection signal="visibility_changed" from="GameOverScreen" to="." method="_on_game_over_screen_visibility_changed"]
+[connection signal="pressed" from="GameOverScreen/VBoxContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="GameOverScreen/VBoxContainer/VBoxContainer/BackToTitle" to="." method="_on_back_to_title_pressed"]

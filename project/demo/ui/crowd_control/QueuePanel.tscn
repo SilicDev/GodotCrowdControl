@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6do3h2gwca7w"]
+
+[ext_resource type="Theme" uid="uid://cvfuoumocfykg" path="res://demo/assets/ui/CrowdControl.theme" id="1_i3e5x"]
+[ext_resource type="Texture2D" uid="uid://p60x272aba7k" path="res://addons/godotcrowdcontrol/assets/icon.png" id="2_2dkor"]
+[ext_resource type="Script" path="res://demo/ui/crowd_control/QueuePanel.gd" id="2_aegf4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5m08i"]
+font_size = 27
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="QueuePanel" type="PanelContainer" node_paths=PackedStringArray("CountLabel", "EffectIcon")]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_i3e5x")
+script = ExtResource("2_aegf4")
+CountLabel = NodePath("Label")
+EffectIcon = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_2dkor")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_5m08i")
+horizontal_alignment = 1

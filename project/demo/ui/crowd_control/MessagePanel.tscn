@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbk0h3cdl0eyc"]
+
+[ext_resource type="Theme" uid="uid://cvfuoumocfykg" path="res://demo/assets/ui/CrowdControl.theme" id="1_ip8nd"]
+[ext_resource type="Script" path="res://demo/ui/crowd_control/MessagePanel.gd" id="2_dbqma"]
+[ext_resource type="Texture2D" uid="uid://bwtl5v4jnycso" path="res://demo/assets/ui/mask.png" id="2_jrc8k"]
+[ext_resource type="Texture2D" uid="uid://c0qgpki6gdwwp" path="res://addons/godotcrowdcontrol/assets/icons/user.png" id="3_88ds1"]
+
+[node name="MessagePanel" type="PanelContainer" node_paths=PackedStringArray("Message", "Icon")]
+offset_right = 270.0
+offset_bottom = 30.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_ip8nd")
+theme_type_variation = &"Subpanel"
+script = ExtResource("2_dbqma")
+Message = NodePath("HBox/Panel/Margin/Label")
+Icon = NodePath("HBox/Margin/Mask/Icon")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margin" type="MarginContainer" parent="HBox"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Mask" type="TextureRect" parent="HBox/Margin"]
+clip_children = 1
+layout_mode = 2
+texture = ExtResource("2_jrc8k")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Icon" type="TextureRect" parent="HBox/Margin/Mask"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_88ds1")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Panel" type="PanelContainer" parent="HBox"]
+layout_mode = 2
+theme_type_variation = &"ContentPanel"
+
+[node name="Margin" type="MarginContainer" parent="HBox/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Label" type="Label" parent="HBox/Panel/Margin"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 2

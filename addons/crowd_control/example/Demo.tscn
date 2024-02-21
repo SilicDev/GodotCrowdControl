@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxtmomung5w6a"]
-
-[ext_resource type="Script" path="res://addons/crowd_control/example/Demo.gd" id="1_8mu8g"]
-
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_8mu8g")

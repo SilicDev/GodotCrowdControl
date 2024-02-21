@@ -1,0 +1,30 @@
+[configuration]
+
+entry_symbol = "gdextension_init"
+compatibility_minimum = 4.1
+
+[icons]
+
+CrowdControl = "res://addons/godotcrowdcontrol/assets/icon.png"
+CCEffect = "res://addons/godotcrowdcontrol/assets/icon.png"
+CCEffectBidWar = "res://addons/godotcrowdcontrol/assets/icon.png"
+CCEffectTimed = "res://addons/godotcrowdcontrol/assets/icon.png"
+CCEffectParameters = "res://addons/godotcrowdcontrol/assets/icon.png"
+CCEffectInstance = "res://addons/godotcrowdcontrol/assets/icon.png"
+CCEffectInstanceBidWar = "res://addons/godotcrowdcontrol/assets/icon.png"
+CCEffectInstanceTimed = "res://addons/godotcrowdcontrol/assets/icon.png"
+CCEffectInstanceParameters = "res://addons/godotcrowdcontrol/assets/icon.png"
+CCEffectEntries = "res://addons/godotcrowdcontrol/assets/icon.png"
+
+[libraries]
+
+macos.debug = "bin/libgodotcrowdcontrol.macos.debug.framework"
+macos.release = "bin/libgodotcrowdcontrol.macos.release.framework"
+windows.debug.x86_64 = "bin/libgodotcrowdcontrol.windows.debug.x86_64.dll"
+windows.release.x86_64 = "bin/libgodotcrowdcontrol.windows.release.x86_64.dll"
+linux.debug.x86_64 = "bin/libgodotcrowdcontrol.linux.debug.x86_64.so"
+linux.release.x86_64 = "bin/libgodotcrowdcontrol.linux.release.x86_64.so"
+linux.debug.arm64 = "bin/libgodotcrowdcontrol.linux.debug.arm64.so"
+linux.release.arm64 = "bin/libgodotcrowdcontrol.linux.release.arm64.so"
+linux.debug.rv64 = "bin/libgodotcrowdcontrol.linux.debug.rv64.so"
+linux.release.rv64 = "bin/libgodotcrowdcontrol.linux.release.rv64.so"

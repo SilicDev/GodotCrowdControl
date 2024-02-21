@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://gmxycp2vmveh"]
+
+[ext_resource type="Script" path="res://demo/ui/crowd_control/Overlay.gd" id="1_eclbx"]
+
+[node name="CrowdControlOverlay" type="Control" node_paths=PackedStringArray("MessageQueue", "EffectQueue", "EventQueue", "DebuffQueue")]
+editor_description = "Because CanvasLayer will consume any mouse event if a control has mouse_mode set to anything but Ignore this overlay can not manage any inputs."
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_eclbx")
+MessageQueue = NodePath("VBox/HBox/MessageQueue")
+EffectQueue = NodePath("VBox/HBox/EffectQueue")
+EventQueue = NodePath("VBox/Events/EventQueue")
+DebuffQueue = NodePath("VBox/Events/DebuffQueue")
+event_panel_scene = "res://demo/ui/crowd_control/EventPanel.tscn"
+message_panel_scene = "res://demo/ui/crowd_control/MessagePanel.tscn"
+queue_panel_scene = "res://demo/ui/crowd_control/QueuePanel.tscn"
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="MessageQueue" type="VBoxContainer" parent="VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="EffectQueue" type="HBoxContainer" parent="VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+alignment = 2
+
+[node name="Events" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="EventQueue" type="VBoxContainer" parent="VBox/Events"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="Control" type="Control" parent="VBox/Events"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="DebuffQueue" type="VBoxContainer" parent="VBox/Events"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2

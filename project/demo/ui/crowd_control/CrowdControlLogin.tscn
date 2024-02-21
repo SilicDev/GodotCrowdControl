@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://drqai807g6637"]
+
+[ext_resource type="Theme" uid="uid://cvfuoumocfykg" path="res://demo/assets/ui/CrowdControl.theme" id="1_2gg1p"]
+[ext_resource type="Script" path="res://demo/ui/crowd_control/CrowdControlLogin.gd" id="2_aho6b"]
+[ext_resource type="Texture2D" uid="uid://tca8jg2uavqh" path="res://addons/godotcrowdcontrol/assets/logos/CrowdControl_Logo_Stacked.svg" id="3_qp7ns"]
+[ext_resource type="Texture2D" uid="uid://b0swfmmdbfmlu" path="res://addons/godotcrowdcontrol/assets/logos/third_party/Twitch.svg" id="4_y31p8"]
+[ext_resource type="Texture2D" uid="uid://oqx83gu6q77j" path="res://addons/godotcrowdcontrol/assets/logos/third_party/Youtube.svg" id="5_a5kby"]
+[ext_resource type="Texture2D" uid="uid://b4prkhcrcvnl4" path="res://addons/godotcrowdcontrol/assets/logos/third_party/Discord.svg" id="6_14ey1"]
+
+[node name="CrowdControlLogin" type="PanelContainer" node_paths=PackedStringArray("initial_focus")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_2gg1p")
+theme_type_variation = &"PopupPanelContainer"
+script = ExtResource("2_aho6b")
+initial_focus = NodePath("CenterContainer/VBoxContainer/VBoxContainer/Twitch")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_qp7ns")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Login with"
+horizontal_alignment = 1
+
+[node name="Twitch" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TwitchButton"
+text = "Twitch"
+icon = ExtResource("4_y31p8")
+expand_icon = true
+
+[node name="Youtube" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"YoutubeButton"
+text = "Youtube"
+icon = ExtResource("5_a5kby")
+expand_icon = true
+
+[node name="Discord" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"DiscordButton"
+text = "Discord"
+icon = ExtResource("6_14ey1")
+expand_icon = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Back" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Twitch" to="." method="_on_twitch_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Youtube" to="." method="_on_youtube_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Discord" to="." method="_on_discord_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]

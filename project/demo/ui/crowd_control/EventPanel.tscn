@@ -1,0 +1,134 @@
+[gd_scene load_steps=7 format=3 uid="uid://67oclq0diyj7"]
+
+[ext_resource type="Theme" uid="uid://cvfuoumocfykg" path="res://demo/assets/ui/CrowdControl.theme" id="1_y8h14"]
+[ext_resource type="Texture2D" uid="uid://bwtl5v4jnycso" path="res://demo/assets/ui/mask.png" id="2_30bhw"]
+[ext_resource type="Texture2D" uid="uid://p60x272aba7k" path="res://addons/godotcrowdcontrol/assets/icon.png" id="2_53c6p"]
+[ext_resource type="Script" path="res://demo/ui/crowd_control/EventPanel.gd" id="2_ffi8j"]
+[ext_resource type="Texture2D" uid="uid://c0qgpki6gdwwp" path="res://addons/godotcrowdcontrol/assets/icons/user.png" id="3_dharw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jumcf"]
+font_size = 30
+font_color = Color(0.968627, 0.27451, 0.376471, 1)
+shadow_color = Color(0, 0, 0, 0.776471)
+
+[node name="EventPanel" type="PanelContainer" node_paths=PackedStringArray("EventIcon", "RoleLabel", "UserIcon", "EventTextLabel", "QuantityLabel", "EventValue", "TimerBar")]
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = ExtResource("1_y8h14")
+script = ExtResource("2_ffi8j")
+EventIcon = NodePath("VBox/PanelContainer/HBox/Margin/Mask/EventIcon")
+RoleLabel = NodePath("VBox/PanelContainer/HBox/Panel/HBoxContainer/PanelContainer/RoleLabel")
+UserIcon = NodePath("VBox/PanelContainer/HBox/Panel/HBoxContainer/Mask/UserIcon")
+EventTextLabel = NodePath("VBox/PanelContainer/HBox/Panel/HBoxContainer/EventTextLabel")
+QuantityLabel = NodePath("VBox/PanelContainer/HBox/Panel/HBoxContainer/QuantityLabel")
+EventValue = NodePath("VBox/PanelContainer/HBox/EventValue")
+TimerBar = NodePath("VBox/TimerBar")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="VBox"]
+layout_mode = 2
+text = "You"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"Subpanel"
+
+[node name="HBox" type="HBoxContainer" parent="VBox/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margin" type="MarginContainer" parent="VBox/PanelContainer/HBox"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Mask" type="TextureRect" parent="VBox/PanelContainer/HBox/Margin"]
+clip_children = 1
+layout_mode = 2
+texture = ExtResource("2_30bhw")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="EventIcon" type="TextureRect" parent="VBox/PanelContainer/HBox/Margin/Mask"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_53c6p")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Panel" type="PanelContainer" parent="VBox/PanelContainer/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ContentPanel"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBox/PanelContainer/HBox/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="VBox/PanelContainer/HBox/Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="RoleLabel" type="Label" parent="VBox/PanelContainer/HBox/Panel/HBoxContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Mask" type="TextureRect" parent="VBox/PanelContainer/HBox/Panel/HBoxContainer"]
+clip_children = 1
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture = ExtResource("2_30bhw")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="UserIcon" type="TextureRect" parent="VBox/PanelContainer/HBox/Panel/HBoxContainer/Mask"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_dharw")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="EventTextLabel" type="RichTextLabel" parent="VBox/PanelContainer/HBox/Panel/HBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][b]User[/b]
+Crowd Control Effect[/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="QuantityLabel" type="Label" parent="VBox/PanelContainer/HBox/Panel/HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "x1"
+label_settings = SubResource("LabelSettings_jumcf")
+
+[node name="Control" type="Control" parent="VBox/PanelContainer/HBox/Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="EventValue" type="Label" parent="VBox/PanelContainer/HBox"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.92549, 0.231373, 1)
+text = "1"
+horizontal_alignment = 1
+
+[node name="TimerBar" type="ProgressBar" parent="VBox"]
+visible = false
+layout_mode = 2
+value = 50.0
+show_percentage = false
