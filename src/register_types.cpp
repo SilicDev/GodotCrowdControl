@@ -25,7 +25,7 @@ void gdextension_initialize(ModuleInitializationLevel p_level) {
 		GDREGISTER_CLASS(CCEffectInstanceParameters);
 		GDREGISTER_CLASS(CCEffectEntries);
 		GDREGISTER_CLASS(CrowdControl);
-		GDREGISTER_ABSTRACT_CLASS(CCNetworkManager);
+		GDREGISTER_INTERNAL_CLASS(CCNetworkManager);
 		if (!Engine::get_singleton()->has_singleton("CrowdControl")) {
 			Engine::get_singleton()->register_singleton("CrowdControl", CrowdControl::get_singleton());
 		}

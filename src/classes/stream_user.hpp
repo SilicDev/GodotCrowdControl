@@ -15,6 +15,7 @@ class StreamUser : public RefCounted {
 public:
 	GDCLASS(StreamUser, RefCounted)
 
+public:
 	static Ref<StreamUser> make(String p_origin_site, String p_name, String p_display_name, String p_profile_icon_url, PackedStringArray p_roles, PackedStringArray p_subscriptions, String p_origin_id);
 	static Ref<StreamUser> make(String p_name, String p_profile_icon_url, PackedStringArray p_roles);
 	static Ref<StreamUser> make(String p_name, Ref<Texture2D> p_profile_icon);
