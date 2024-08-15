@@ -9,9 +9,9 @@
 
 #include "classes/cc_effect_instance.hpp"
 #include "classes/crowd_control.hpp"
+#include "json/effect_response.hpp"
 #include "json/coin_exchange.hpp"
 #include "json/effect_report.hpp"
-#include "json/effect_response.hpp"
 #include "json/user_info.hpp"
 
 bool CCNetworkManager::is_connected_to_crowd_control() const {

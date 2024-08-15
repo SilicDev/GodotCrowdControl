@@ -6,7 +6,7 @@
 #include <godot_cpp/classes/label.hpp>
 #include <godot_cpp/variant/callable.hpp>
 
-#include "classes/cc_effect.hpp"
+#include "classes/cc_effect/cc_effect.hpp"
 
 void CCEditorInspectorPlugin::_create_manifest(Ref<CCEffectEntries> p_entries) {
 	ERR_FAIL_NULL_EDMSG(p_entries, "No effect entries loaded!");

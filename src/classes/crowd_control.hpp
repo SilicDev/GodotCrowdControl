@@ -9,7 +9,11 @@
 #include <godot_cpp/classes/thread.hpp>
 #include <godot_cpp/templates/hash_map.hpp>
 
-#include "classes/cc_effect.hpp"
+#include "classes/cc_effect/cc_effect.hpp"
+#include "classes/cc_effect/cc_effect_bid_war.hpp"
+#include "classes/cc_effect/cc_effect_parameters.hpp"
+#include "classes/cc_effect/cc_effect_timed.hpp"
+#include "classes/cc_effect_instance.hpp"
 #include "json/effect_request.hpp"
 #include "util/cc_enums.hpp"
 

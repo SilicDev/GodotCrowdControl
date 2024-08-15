@@ -3,7 +3,7 @@
 
 #include <godot_cpp/templates/hash_map.hpp>
 
-#include "classes/cc_effect.hpp"
+#include "classes/cc_effect/cc_effect.hpp"
 #include "util/json_serializer.hpp"
 
 #include <optional>
@@ -34,7 +34,7 @@ struct EffectManifest {
 		uint32_t min = 1;
 		uint32_t max = 99;
 
-		Quantity(){};
+		Quantity() {};
 		Quantity(uint32_t p_min, uint32_t p_max) {
 			min = p_min;
 			max = p_max;
@@ -48,7 +48,7 @@ struct EffectManifest {
 	struct Duration {
 		uint64_t value = 1;
 
-		Duration(){};
+		Duration() {};
 		Duration(uint64_t p_duration) {
 			value = p_duration;
 		}
@@ -71,7 +71,7 @@ struct EffectManifest {
 	std::optional<Quantity> quantity;
 	std::optional<Duration> duration;
 
-	EffectManifest(){};
+	EffectManifest() {};
 	EffectManifest(Ref<CCEffect> effect) {
 		inactive = !effect->is_sellable();
 		disabled = !effect->is_visible();
@@ -101,6 +101,10 @@ struct EffectManifest {
 					param["type"] = "options";
 					Dictionary options;
 					for (int i = 0; i < kv.value.options.size(); i++) {
+						CCEffectParameters::ParameterOption option = kv.value.options[i];
+						Dictionary option_dict;
+						option_dict["name"] = option.name;
+						options[option.id] = option_dict;
 					}
 					param["options"] = options;
 				} else if (kv.value.kind == CCEffectParameters::ParameterEntryKind::RANGE) {
@@ -228,7 +232,7 @@ struct Manifest {
 	MetaData meta;
 	Effects effects;
 
-	Manifest(){};
+	Manifest() {};
 
 	Manifest(String p_game_name, HashMap<String, Ref<CCEffect>> p_effects) {
 		meta = MetaData();

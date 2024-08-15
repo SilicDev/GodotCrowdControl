@@ -2,7 +2,10 @@
 
 #include <godot_cpp/variant/utility_functions.hpp>
 
-#include "classes/cc_effect.hpp"
+#include "classes/cc_effect/cc_effect.hpp"
+#include "classes/cc_effect/cc_effect_bid_war.hpp"
+#include "classes/cc_effect/cc_effect_parameters.hpp"
+#include "classes/cc_effect/cc_effect_timed.hpp"
 #include "classes/stream_user.hpp"
 
 void CCEffectInstance::_bind_methods() {
@@ -33,6 +36,10 @@ void CCEffectInstanceTimed::_bind_methods() {
 
 Ref<CCEffectTimed> CCEffectInstanceTimed::get_effect_timed() const {
 	return Object::cast_to<CCEffectTimed>(get_effect().ptr());
+}
+
+void CCEffectInstanceTimed::set_effect_timed(const Ref<CCEffectTimed> &p_effect_timed) {
+	set_effect(p_effect_timed);
 }
 
 bool CCEffectInstanceTimed::is_paused() const {

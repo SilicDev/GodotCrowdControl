@@ -9,7 +9,6 @@
 #include <godot_cpp/core/error_macros.hpp>
 #include <godot_cpp/variant/utility_functions.hpp>
 
-#include "classes/cc_effect_instance.hpp"
 #include "classes/cc_network_manager.hpp"
 #include "classes/stream_user.hpp"
 #include "json/game_session.hpp"

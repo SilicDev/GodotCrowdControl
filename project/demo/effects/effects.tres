@@ -11,10 +11,6 @@
 
 [sub_resource type="CCEffectBidWar" id="CCEffectBidWar_x4bmo"]
 entry_count = 3
-icon = ExtResource("1_5quk0")
-id = &"changecolor"
-display_name = "Change Color"
-description = "Change the player's color."
 entry_0/name = "Red"
 entry_0/tint = Color(1, 1, 1, 1)
 entry_0/id = "changecolor_red"
@@ -24,6 +20,10 @@ entry_1/id = "changecolor_green"
 entry_2/name = "Blue"
 entry_2/tint = Color(1, 1, 1, 1)
 entry_2/id = "changecolor_blue"
+icon = ExtResource("1_5quk0")
+id = &"changecolor"
+display_name = "Change Color"
+description = "Change the player's color."
 script = ExtResource("1_mlue8")
 
 [sub_resource type="CCEffect" id="CCEffect_d6xm7"]
@@ -38,6 +38,11 @@ script = ExtResource("1_uq48j")
 
 [sub_resource type="CCEffectParameters" id="CCEffectParameters_fqfyx"]
 parameter_count = 1
+parameter_0/name = "Total Coins"
+parameter_0/tint = Color(1, 1, 1, 1)
+parameter_0/id = "givecoins_totalcoins"
+parameter_0/kind = 0
+parameter_0/options = PackedStringArray("One", "Two", "Three", "Four", "Five")
 morality = 1
 icon = ExtResource("1_5quk0")
 id = &"givecoins"
@@ -45,11 +50,6 @@ display_name = "Give Coins"
 description = "Give the player coins."
 price = 1
 categories = PackedStringArray("Coins")
-parameter_0/name = "Total Coins"
-parameter_0/tint = Color(1, 1, 1, 1)
-parameter_0/id = "givecoins_totalcoins"
-parameter_0/kind = 0
-parameter_0/options = PackedStringArray("One", "Two", "Three", "Four", "Five")
 script = ExtResource("3_y87ju")
 
 [sub_resource type="CCEffectTimed" id="CCEffectTimed_4e1yg"]
@@ -74,18 +74,18 @@ script = ExtResource("5_bytua")
 
 [sub_resource type="CCEffectParameters" id="CCEffectParameters_2xsdb"]
 parameter_count = 1
-morality = 2
-icon = ExtResource("1_5quk0")
-id = &"takecoins"
-display_name = "Take Coins"
-description = "Take a certain amount of coins away from the player."
-price = 1
 parameter_0/name = "Quantity"
 parameter_0/tint = Color(1, 1, 1, 1)
 parameter_0/id = "quantity"
 parameter_0/kind = 1
 parameter_0/min = 1
 parameter_0/max = 99
+morality = 2
+icon = ExtResource("1_5quk0")
+id = &"takecoins"
+display_name = "Take Coins"
+description = "Take a certain amount of coins away from the player."
+price = 1
 script = ExtResource("6_gvow0")
 
 [sub_resource type="CCEffect" id="CCEffect_s1y7j"]

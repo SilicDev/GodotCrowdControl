@@ -4,7 +4,7 @@
 #include <godot_cpp/classes/time.hpp>
 #include <godot_cpp/templates/list.hpp>
 
-#include "classes/cc_effect.hpp"
+#include "classes/cc_effect/cc_effect.hpp"
 #include "classes/cc_effect_instance.hpp"
 #include "classes/cc_network_manager.hpp"
 #include "util/json_serializer.hpp"

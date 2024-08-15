@@ -10,6 +10,7 @@ env.Append(CPPPATH=["src/"])
 sources = Glob("src/*.cpp")
 sources.append(Glob('src/util/*.cpp'))
 sources.append(Glob('src/classes/*.cpp'))
+sources.append(Glob('src/classes/cc_effect/*.cpp'))
 
 # Find gdextension path even if the directory or extension is renamed (e.g. project/addons/example/example.gdextension).
 (extension_path,) = glob("project/addons/*/*.gdextension")

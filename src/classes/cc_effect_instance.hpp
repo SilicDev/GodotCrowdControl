@@ -6,9 +6,9 @@
 #include "json/effect_request.hpp"
 #include "util/binding_macros.hpp"
 
+class StreamUser;
 class CCEffect;
 class CCEffectTimed;
-class StreamUser;
 
 using namespace godot;
 
@@ -64,8 +64,7 @@ public:
 	void set_active(bool p_active) { active = p_active; }
 
 	Ref<CCEffectTimed> get_effect_timed() const;
-	void set_effect_timed(const Ref<CCEffectTimed> &p_effect_timed) { set_effect(p_effect_timed); }
-
+	void set_effect_timed(const Ref<CCEffectTimed> &p_effect_timed);
 	float get_end_time() const { return end_time; }
 	void set_end_time(const float &p_end_time) { end_time = p_end_time; }
 
