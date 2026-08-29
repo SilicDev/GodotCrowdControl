@@ -64,7 +64,7 @@ struct EffectReportCall {
 		//parameters
 		Array out_args;
 		for (int i = 0; i < args.size(); i++) {
-			out_args.append(JSONSerializer::serialize<EffectReportArgs>(args[i]));
+			out_args.append(JSONSerializer::serialize<EffectReportArgs>(args.get(i)));
 		}
 		out["args"] = out_args;
 		out["id"] = id;
@@ -82,7 +82,7 @@ struct EffectReport {
 
 	EffectReport(const String &p_token, const Ref<CCEffect> &p_effect, const String &p_status) {
 		token = p_token;
-		call.args[0] = EffectReportArgs(p_status, Array::make(p_effect->get_id()));
+		call.args.push_front(EffectReportArgs(p_status, Array::make(p_effect->get_id())));
 	}
 
 	constexpr static auto json_properties = std::make_tuple(

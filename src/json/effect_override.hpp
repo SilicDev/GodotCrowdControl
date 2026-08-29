@@ -58,7 +58,7 @@ struct EffectChangePrice {
 		//parameters
 		Array out_args;
 		for (int i = 0; i < effect_overrides.size(); i++) {
-			out_args.append(JSONSerializer::serialize<EffectChangePriceEntry>(effect_overrides[i]));
+			out_args.append(JSONSerializer::serialize<EffectChangePriceEntry>(effect_overrides.get(i)));
 		}
 		out["effectOverrides"] = out_args;
 		return out;
@@ -116,7 +116,7 @@ struct EffectChangeNonPoolable {
 		//parameters
 		Array out_args;
 		for (int i = 0; i < effect_overrides.size(); i++) {
-			out_args.append(JSONSerializer::serialize<EffectChangeNonPoolableEntry>(effect_overrides[i]));
+			out_args.append(JSONSerializer::serialize<EffectChangeNonPoolableEntry>(effect_overrides.get(i)));
 		}
 		out["effectOverrides"] = out_args;
 		return out;
@@ -171,7 +171,7 @@ struct EffectChangeSessionMax {
 		//parameters
 		Array out_args;
 		for (int i = 0; i < effect_overrides.size(); i++) {
-			out_args.append(JSONSerializer::serialize<EffectChangeSessionMaxEntry>(effect_overrides[i]));
+			out_args.append(JSONSerializer::serialize<EffectChangeSessionMaxEntry>(effect_overrides.get(i)));
 		}
 		out["effectOverrides"] = out_args;
 		return out;

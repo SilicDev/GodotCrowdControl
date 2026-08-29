@@ -35,13 +35,13 @@ CCEffect::EffectResult CCEffectTimed::trigger(Ref<CCEffectInstance> effect) {
 
 CCEffect::EffectResult CCEffectTimed::start(Ref<CCEffectInstanceTimed> effect) {
 	EffectResult res;
-	GDVIRTUAL_REQUIRED_CALL(_start, effect, res);
+	GDVIRTUAL_CALL(_start, effect, res);
 	return res;
 }
 
 bool CCEffectTimed::stop(Ref<CCEffectInstanceTimed> effect, bool force) {
 	bool res;
-	GDVIRTUAL_REQUIRED_CALL(_stop, effect, force, res);
+	GDVIRTUAL_CALL(_stop, effect, force, res);
 	if (!res && force) {
 		CrowdControl::get_singleton()->log_error(vformat("Effect '%s' wasn't stopped, but 'force==true'!", get_id()));
 	}

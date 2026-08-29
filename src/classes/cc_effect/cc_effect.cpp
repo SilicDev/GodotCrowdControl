@@ -107,7 +107,7 @@ bool CCEffect::can_run() {
 
 CCEffect::EffectResult CCEffect::trigger(Ref<CCEffectInstance> effect) {
 	int res;
-	GDVIRTUAL_REQUIRED_CALL(_trigger, effect, res);
+	GDVIRTUAL_CALL(_trigger, effect, res);
 	return (EffectResult)res;
 };
 
